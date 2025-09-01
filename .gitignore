@@ -1,0 +1,60 @@
+# -----------------------
+# Python
+# -----------------------
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# -----------------------
+# Notebooks (keep notebooks, ignore checkpoints)
+# -----------------------
+**/.ipynb_checkpoints/
+
+# -----------------------
+# Data (ignore everything by default)
+# Keep ONLY the cleaned CSV used by the app
+# -----------------------
+data/
+demo_data/**/*
+!demo_data/
+!demo_data/clabsi/
+!demo_data/clabsi/cdph_clabsi_odp_2021_2022_2023_clean.csv
+
+# If you ever want to version large CSVs, prefer Git LFS.
+
+# -----------------------
+# Streamlit / caches / env
+# -----------------------
+.streamlit/
+.streamlit/secrets.toml
+.cache/
+.env
+.env.*
+
+# -----------------------
+# Build / Docker
+# -----------------------
+dist/
+build/
+*.log
+docker-compose.override.yml
+
+# -----------------------
+# OS / IDE
+# -----------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# -----------------------
+# Coverage / reports (optional)
+# -----------------------
+.coverage*
+htmlcov/

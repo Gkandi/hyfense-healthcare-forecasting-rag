@@ -1,0 +1,11 @@
+Any Other Notes
+
+- This folder (`docs/`) is the knowledge base for the **Q&A (RAG)** tab.
+- Keep the language **plain** and **concrete**. Short paragraphs and lists work best for retrieval.
+- When you change a file here, **re-index** the docs so the assistant picks up the updates.
+- Roadmap ideas:
+  - Add per-facility model cards (compact PDFs) for sharing.
+  - Provide a “what-if” tool: change line-days or baseline SIR to see hypothetical outcomes.
+  - Add more models (RandomForest, XGBoost/LightGBM), and compare on cross-year backtests.
+  - Bring in additional HAI modules (e.g., CAUTI) as separate tabs with shared components.
+- Operational caution: Public data can be **delayed** or **revised**. For decisions, cross-check with source portals.

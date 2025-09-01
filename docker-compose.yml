@@ -1,0 +1,44 @@
+services:
+  api:
+    # Build the image once here
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hyfense-app:latest
+    container_name: hyfense_api
+    command: >
+      uvicorn app.api.main:app
+      --host 0.0.0.0 --port 8000
+      --workers 1 --proxy-headers
+    environment:
+      CLEAN_CLABSI_CSV: /app/demo_data/clabsi/cdph_clabsi_odp_2021_2022_2023_clean.csv
+      DOCS_DIR: /app/docs
+    ports:
+      - "8000:8000"
+    # HTTP healthcheck without curl/wget
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; \
+        sys.exit(0) if urllib.request.urlopen('http://localhost:8000/health', timeout=3).status==200 else sys.exit(1)\""]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+
+  ui:
+    # Reuse the same already-built image
+    image: hyfense-app:latest
+    container_name: hyfense_ui
+    command: >
+      streamlit run app/ui/streamlit_app.py
+      --server.port 8501
+      --server.address 0.0.0.0
+    environment:
+      # Service-to-service DNS works via this name
+      API_URL: http://api:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped

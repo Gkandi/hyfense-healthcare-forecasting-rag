@@ -1,4 +1,3 @@
-Correct the following (old) README.md file accordingly for this section and any other section that needs modifications.
 
 # Hyfense Demo — CLABSI Benchmarks, Forecasting & RAG
 
@@ -126,19 +125,21 @@ Base: `http://localhost:8000`
 
 ### Tabs (left to right)
 1. **Benchmark**  
-
+![alt text](../img/main.png)
       A quick, statewide snapshot for the selected year. See the big numbers at a glance—SIR (lower is better), 
       raw infection counts, line-days, and how many facilities met targets. 
       Use this to understand “how we did overall” before drilling into details.
 2. **Trends**  
-
+![alt text](../img/trends.png)
       Pick a facility and watch its story over time. You’ll see SIR trends and observed vs expected rates, plus a clean table you can sort or download. Use this to spot steady improvement, sudden changes, or gaps to investigate.
 3. **Forecast**  
-
+![alt text](../img/Forecast_1.png)
+![alt text](../img/Forecast_2.png)
+![alt text](../img/Forecast_3.png)
       Choose a target year and a model to estimate each facility’s next SIR. The table lists predictions and a 90% uncertainty range; charts highlight the riskiest facilities and where things might shift. Pick a past year to view backtest accuracy (MAE/RMSE) or the next year for a forward look.
 
 4. **Assist** Q&A (RAG) / Legend & formulas 
-
+![alt text](../img/assist.png)
       Ask questions in plain language and get answers grounded in the project’s docs (README, FAQ, methods, data dictionary, etc.). “Refresh index” after you edit docs. The Legend gives simple definitions and formulas so you can interpret every chart and metric with confidence.
 ### Common sidebar controls
 
